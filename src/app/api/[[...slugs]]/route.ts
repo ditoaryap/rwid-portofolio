@@ -1,9 +1,15 @@
+import swagger from "@elysiajs/swagger";
 import { Elysia, t } from "elysia";
 
 const app = new Elysia({ prefix: "/api" })
-  .get("/", () => ({
-    message: "hello Next",
-  }))
+  .use(swagger())
+  .get(
+    "/",
+    () => ({
+      message: "hello Next",
+    }), 
+    { detail: { tags: ["Home"] } }
+  )
   .post("/", ({ body }) => body, {
     body: t.Object({
       name: t.String(),
