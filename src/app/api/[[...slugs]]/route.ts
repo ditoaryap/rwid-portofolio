@@ -1,7 +1,5 @@
 import { Elysia, t } from "elysia";
 
-const users: any = [];
-
 const app = new Elysia({ prefix: "/api" })
   .get("/", () => ({
     message: "hello Next",
@@ -11,23 +9,6 @@ const app = new Elysia({ prefix: "/api" })
       name: t.String(),
     }),
   });
-
-app.get("/names", () => ({
-  name: users,
-}));
-
-app.post(
-  "/name",
-  ({ body }) => {
-    users.push(body.name);
-    return { success: true, users };
-  },
-  {
-    body: t.Object({
-      name: t.String(),
-    }),
-  }
-);
 
 export const GET = app.handle;
 export const POST = app.handle;
