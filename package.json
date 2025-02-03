@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@elysiajs/swagger": "^1.2.0",
     "elysia": "^1.2.11",
     "next": "15.1.6",
     "react": "^19.0.0",
